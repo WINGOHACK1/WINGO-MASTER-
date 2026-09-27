@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join WhatsApp Channel</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .logo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        .title {
+            font-size: 18px;
+            font-weight: normal;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+        }
+        .join-btn {
+            display: inline-block;
+            background-color: #ffaa00;
+            color: #000000;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 12px 20px;
+            border-radius: 25px;
+            width: 80%;
+            margin-bottom: 40px;
+            transition: 0.1s;
+            /* گلو اینیمیشن یہاں لگائی گئی ہے */
+            animation: glowing 1.5s infinite;
+        }
+        .join-btn:active {
+            transform: translateY(3px);
+            box-shadow: 0px 2px 0px #0a3d62;
+            animation: none; /* کلک کرتے وقت اینیمیشن رک جائے گی */
+        }
+        
+        /* بٹن کو چمکانے کے لیے Keyframes */
+        @keyframes glowing {
+            0% {
+                box-shadow: 0px 5px 0px #0a3d62, 0 0 5px #ffaa00;
+            }
+            50% {
+                box-shadow: 0px 5px 0px #0a3d62, 0 0 20px #ffaa00, 0 0 40px #ffaa00;
+            }
+            100% {
+                box-shadow: 0px 5px 0px #0a3d62, 0 0 5px #ffaa00;
+            }
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin-bottom: 40px;
+        }
+        .time-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 65px;
+        }
+        .numbers {
+            color: #ffaa00;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .label {
+            font-size: 10px;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+        .colon {
+            color: #ffaa00;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 2px;
+        }
+        .dividers {
+            width: 90%;
+            margin: 0 auto;
+        }
+        .divider {
+            border: 0;
+            height: 1px;
+            background-color: #333333;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- آپ کی گول لوگو تصویر کا کوڈ -->
+        <img src="https://i.postimg.cc/hj20KxkR/IMG-20260926-WA0012.jpg" alt="Logo" class="logo">
+        
+        <div class="title">WINGO MASTER</div>
+        
+        <!-- آپ کا واٹس ایپ چینل کا لنک -->
+        <a href="https://whatsapp.com/channel/0029Vb8yWJkChq6MqSc3d20O" class="join-btn">JOIN WHATSAPP CHANNEL</a>
+
+        <div class="countdown">
+            <div class="time-box">
+                <div class="numbers" id="days">00</div>
+                <div class="label">DAYS</div>
+            </div>
+            <div class="colon">:</div>
+            <div class="time-box">
+                <div class="numbers" id="hours">00</div>
+                <div class="label">HOURS</div>
+            </div>
+            <div class="colon">:</div>
+            <div class="time-box">
+                <div class="numbers" id="minutes">00</div>
+                <div class="label">MINUTES</div>
+            </div>
+            <div class="colon">:</div>
+            <div class="time-box">
+                <div class="numbers" id="seconds">00</div>
+                <div class="label">SECONDS</div>
+            </div>
+        </div>
+
+        <div class="dividers">
+            <hr class="divider">
+            <hr class="divider">
+            <hr class="divider">
+        </div>
+    </div>
+
+    <script>
+        var countDownDate = new Date().getTime() + (2 * 24 * 60 * 60 * 1000); 
+
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            days = days < 10 ? "0" + days : days;
+            hours = hours < 10 ? "0" + hours : hours;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("days").innerHTML = "00";
+                document.getElementById("hours").innerHTML = "00";
+                document.getElementById("minutes").innerHTML = "00";
+                document.getElementById("seconds").innerHTML = "00";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
